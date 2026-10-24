@@ -1,0 +1,65 @@
+:root{color-scheme:only light}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{font-family:Arial,sans-serif;background:#223c31;color:#263e33}#board{position:absolute;inset:2.5vh 3vw;padding:2vh 3vw;background:#f4eddf;border:1px solid #c7b99d;--type:40px}#items{width:100%;height:100%;overflow:hidden}.menu-section{margin-bottom:calc(var(--type)*.32)}.two-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:4vw;row-gap:0;align-items:start}.menu-column{min-width:0}.menu-header{font:400 calc(var(--type)*1.3)/1.12 Georgia,serif;color:#986240;border-bottom:1px solid #c7b99d;margin:0 0 calc(var(--type)*.25);padding-top:calc(var(--type)*.1);padding-bottom:calc(var(--type)*.18)}.menu-item{margin-bottom:calc(var(--type)*.2)}.item-row{display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:baseline;gap:2vw;font:400 var(--type)/1.15 Arial,sans-serif}.item-name{min-width:0;overflow-wrap:break-word}.item-price{display:block;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}.description{font:400 calc(var(--type)*.68)/1.2 Arial,sans-serif;color:#5d6154;margin-top:calc(var(--type)*.08)}.menu-option{font:400 var(--type)/1.2 Arial,sans-serif;margin-bottom:calc(var(--type)*.15)}#initial{font-size:3vh}body[data-menu=screen2] #board{background:#263e33;color:#f4eddf}body[data-menu=screen2] .menu-header{color:#e7ba83;border-color:#748473}body[data-menu=screen2] .description{color:#dbdfcf}
+@font-face{font-family:Jost;src:url('/static/fonts/Jost.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+body[data-theme=modern-minimalistic]{background:#000;color:#000;font-family:Jost,Arial,sans-serif}
+body[data-theme=modern-minimalistic] #board{background:#fff;color:#000;border-color:#000}
+body[data-theme=modern-minimalistic] .menu-header{font-family:Jost,Arial,sans-serif;font-weight:500;color:#000;border-color:#000}
+body[data-theme=modern-minimalistic] .item-row,body[data-theme=modern-minimalistic] .menu-option{font-family:Jost,Arial,sans-serif}
+body[data-theme=modern-minimalistic] .description{font-family:Jost,Arial,sans-serif;color:#000}
+/* Footer space participates in the automatic font fitting. */
+#board{display:flex;flex-direction:column}#items{flex:1 1 auto;min-height:0;height:auto}#food-safety{flex:0 0 auto;line-height:1.15;margin-top:calc(var(--type)*.3);font-family:inherit;overflow-wrap:break-word}#food-safety[hidden]{display:none}.item-row.no-price{grid-template-columns:minmax(0,1fr)}
+@font-face{font-family:Courgette;src:url('/static/fonts/Courgette-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Kalam;src:url('/static/fonts/Kalam-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Fredericka the Great';src:url('/static/fonts/FrederickatheGreat-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Cormorant Garamond';src:url('/static/fonts/CormorantGaramond.ttf') format('truetype');font-weight:300 700;font-display:swap}
+@font-face{font-family:Oswald;src:url('/static/fonts/Oswald.ttf') format('truetype');font-weight:200 700;font-display:swap}
+body[data-theme=golden-chalk]{background:#292824;color:#f6f0df;font-family:Kalam,Arial,sans-serif}
+body[data-theme=golden-chalk] #board{background:#343630;color:#f6f0df;border-color:#a69776}
+body[data-theme=golden-chalk] .menu-header{font-family:Jost,Arial,sans-serif;color:#eab75d;letter-spacing:.07em;text-transform:uppercase;font-weight:500;border-color:#a69776}
+body[data-theme=golden-chalk] .item-name{font-family:Courgette,cursive;color:#eab75d}
+body[data-theme=golden-chalk] .item-price,body[data-theme=golden-chalk] .description,body[data-theme=golden-chalk] .menu-option{font-family:Kalam,Arial,sans-serif;color:#f6f0df}
+body[data-theme=golden-chalk] .description{text-transform:uppercase}
+body[data-theme=coffeehouse-chalkboard]{background:#151515;color:#f8f7f1;font-family:Kalam,Arial,sans-serif}
+body[data-theme=coffeehouse-chalkboard] #board{background-color:#20211f;background-image:url('/static/chalk-cup.svg');background-repeat:no-repeat;background-size:8vw;background-position:right 1vw bottom 1vh;color:#f8f7f1;border-color:#676861}
+body[data-theme=coffeehouse-chalkboard] .menu-header{font-family:'Fredericka the Great',Georgia,serif;color:#fff;border-color:#96978d}
+body[data-theme=coffeehouse-chalkboard] .item-row,body[data-theme=coffeehouse-chalkboard] .description,body[data-theme=coffeehouse-chalkboard] .menu-option{font-family:Kalam,Arial,sans-serif;color:#f8f7f1}
+body[data-theme=rose-cafe]{background:#bd8e89;color:#241d1d;font-family:'Cormorant Garamond',Georgia,serif}
+body[data-theme=rose-cafe] #board{background:#eac0b9;color:#241d1d;border-color:#7f5655}
+body[data-theme=rose-cafe] .menu-header{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:#241d1d;letter-spacing:.13em;text-transform:uppercase;text-align:center;border-color:#7f5655}
+body[data-theme=rose-cafe] .item-row,body[data-theme=rose-cafe] .description,body[data-theme=rose-cafe] .menu-option{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:#241d1d;text-transform:uppercase;letter-spacing:.035em}
+body[data-theme=retro-diner]{background:#e8ded0;color:#267295;font-family:Oswald,Arial,sans-serif}
+body[data-theme=retro-diner] #board{background:#fff9eb;color:#267295;border-color:#be5166}
+body[data-theme=retro-diner] .menu-section{border:1px solid #be5166;padding:calc(var(--type)*.22) calc(var(--type)*.35);margin-bottom:calc(var(--type)*.4)}
+body[data-theme=retro-diner] .menu-header{font-family:Courgette,cursive;color:#be5166;border:0;padding-top:0}
+body[data-theme=retro-diner] .item-row,body[data-theme=retro-diner] .description,body[data-theme=retro-diner] .menu-option{font-family:Oswald,Arial,sans-serif;color:#267295;text-transform:uppercase;font-weight:400}
+/* Two-column headings have no underline, regardless of theme. */
+body #board .two-columns .menu-header{border-bottom:0}
+
+/* Rotate a correctly sized canvas; automatic fitting uses its new dimensions. */
+#board{inset:auto;left:50%;top:50%;transform-origin:center center}
+/* Seasonal themes keep backgrounds decorative and text at high contrast. */
+body[data-theme=starlight-cafe]{background:#080f25;color:#edf3ff}
+body[data-theme=starlight-cafe] #board{background-color:#101b35;background-image:radial-gradient(circle at 8% 12%,#798eb9 1px,transparent 2px),radial-gradient(circle at 90% 78%,#798eb9 1px,transparent 2px);background-size:110px 130px,170px 160px;color:#edf3ff;border-color:#637ba6}
+body[data-theme=starlight-cafe] .menu-header{font-family:Jost,Arial,sans-serif;font-weight:600;letter-spacing:.04em;color:#f4d599;border-color:#637ba6}
+body[data-theme=starlight-cafe] .item-row,body[data-theme=starlight-cafe] .menu-option{font-family:Jost,Arial,sans-serif;color:#edf3ff}
+body[data-theme=starlight-cafe] .description{font-family:Jost,Arial,sans-serif;color:#c6d4ed}
+body[data-theme=seaside-cafe]{background:#236475;color:#193e49}
+body[data-theme=seaside-cafe] #board{background:#fff6e4;color:#193e49;border-color:#53919b}
+body[data-theme=seaside-cafe] .menu-header{font-family:Courgette,Georgia,serif;color:#286c7b;border-color:#b6c9be}
+body[data-theme=seaside-cafe] .item-row,body[data-theme=seaside-cafe] .menu-option{font-family:Jost,Arial,sans-serif;color:#193e49}
+body[data-theme=seaside-cafe] .description{font-family:Jost,Arial,sans-serif;color:#405b5c}
+body[data-theme=autumn-harvest]{background:#593525;color:#392a21}
+body[data-theme=autumn-harvest] #board{background:#f9edda;color:#392a21;border-color:#b47641}
+body[data-theme=autumn-harvest] .menu-header{font-family:Georgia,serif;font-weight:600;color:#8d3e20;border-color:#c4a17b}
+body[data-theme=autumn-harvest] .item-row,body[data-theme=autumn-harvest] .menu-option{font-family:Jost,Arial,sans-serif;color:#392a21}
+body[data-theme=autumn-harvest] .description{font-family:Jost,Arial,sans-serif;color:#62452f}
+body[data-theme=winter-hearth]{background:#172f36;color:#f7f3e9}
+body[data-theme=winter-hearth] #board{background:#223e46;color:#f7f3e9;border-color:#a7c2c5}
+body[data-theme=winter-hearth] .menu-header{font-family:Georgia,serif;color:#f5dfb7;border-color:#76999e}
+body[data-theme=winter-hearth] .item-row,body[data-theme=winter-hearth] .menu-option{font-family:Jost,Arial,sans-serif;color:#f7f3e9}
+body[data-theme=winter-hearth] .description{font-family:Jost,Arial,sans-serif;color:#d4e5e4}
+body[data-theme=spring-garden]{background:#506447;color:#283a29}
+body[data-theme=spring-garden] #board{background:#faf5e8;color:#283a29;border-color:#849b70}
+body[data-theme=spring-garden] .menu-header{font-family:Courgette,Georgia,serif;color:#754c65;border-color:#b6c6a8}
+body[data-theme=spring-garden] .item-row,body[data-theme=spring-garden] .menu-option{font-family:Jost,Arial,sans-serif;color:#283a29}
+body[data-theme=spring-garden] .description{font-family:Jost,Arial,sans-serif;color:#506447}

@@ -1,0 +1,27 @@
+# Local accounts, menus, secrets, and installation state
+/data/
+.menu.env
+.env
+.env.*
+!.env.example
+# Python and editor output
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+.idea/
+# Private backups, logs, and release archives
+maxs-menu-backups/
+pre-restore-backups/
+*backup*.json
+*.log
+*.zip
+*.tar
+*.tar.gz
+*.img
+*.img.xz
+*.img.gz
+# OS files
+.DS_Store
+Thumbs.db

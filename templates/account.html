@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}My Account · Max’s Menu{% endblock %}{% block scripts %}<script src="/static/account.js" defer></script>{% endblock %}{% block content %}
+<h1>My Account</h1><p>Signed in as <strong>{{ user.username }}</strong>.</p>
+{% if is_admin %}<section class="account-panel"><h2>Change Password</h2><form id="password-form"><div class="toolbar"><label>New password<input id="new-password" type="password" minlength="4" maxlength="64" autocomplete="new-password" required></label><label>Repeat password<input id="confirm-password" type="password" minlength="4" maxlength="64" autocomplete="new-password" required></label><button type="submit" class="primary">Change password</button></div><p id="password-status" role="status" aria-live="polite"></p></form></section>
+{% else %}<p>Your account can edit and publish menus. Contact an administrator to reset your password.</p>{% endif %}
+{% endblock %}

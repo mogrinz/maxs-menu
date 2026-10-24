@@ -1,0 +1,476 @@
+{
+  "schema_version": 3,
+  "screens": [
+    {
+      "id": "screen1",
+      "items": [
+        {
+          "id": "5df2957c93d748cebf2a91fb2f616d9d",
+          "kind": "header",
+          "name": "Bagels",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "5a187d3f4c874d639eb1b3d992e2a985",
+          "kind": "item",
+          "name": "Single Bagel",
+          "description": "",
+          "price": "1.75",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "8bcd578c1faf4f4bac240d4018c34696",
+          "kind": "item",
+          "name": "Half-Dozen",
+          "description": "",
+          "price": "9.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "a3a68fcd1d85422586cc0f5c84b26db2",
+          "kind": "item",
+          "name": "Baker’s Dozen",
+          "description": "",
+          "price": "17.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "6caf7c17140a481ba1ba2257ef70a6b4",
+          "kind": "header",
+          "name": "Breakfast Sandwiches",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "719557f95ef847029abfca38faaa895e",
+          "kind": "item",
+          "name": "Egg or Egg Whites",
+          "description": "On a bagel, challah roll, white, wheat or rye bread.",
+          "price": "4.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "efaca11ee11049049927995cd6c02bfd",
+          "kind": "item",
+          "name": "Egg & Cheese",
+          "description": "American, cheddar, Swiss, provolone or pepper jack.",
+          "price": "5.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "f85c7db379fa48fc9943ed86346f2931",
+          "kind": "item",
+          "name": "Egg, Cheese & Meat",
+          "description": "Bacon, sausage, Canadian bacon, ham or turkey sausage.",
+          "price": "8.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "2b7979a591c94e29bb09888579bc3329",
+          "kind": "item",
+          "name": "Southwestern",
+          "description": "Egg, green pepper, red onion, tomato, pepper jack and choice of meat.",
+          "price": "9.25",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "db4974324a94451ea19c514e51046fb5",
+          "kind": "item",
+          "name": "Lox Bagel",
+          "description": "Smoked salmon, cream cheese, tomato, red onions and capers.",
+          "price": "11.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "1ee7277ae9c84edfac8c69bcc1320c69",
+          "kind": "item",
+          "name": "Smoked Trout Bagel",
+          "description": "Smoked trout spread, spinach, tomato and pickled red onion.",
+          "price": "10.50",
+          "available": true,
+          "column": 1
+        }
+      ],
+      "rotation": 0
+    },
+    {
+      "id": "screen2",
+      "items": [
+        {
+          "id": "b16a6fb264d24335b2c25974f7400691",
+          "kind": "header",
+          "name": "Specialty Sandwiches",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "073dd3bf83a045d585a1b09db7ff90a7",
+          "kind": "item",
+          "name": "Turkey Club",
+          "description": "Whole wheat, turkey, bacon, Swiss, lettuce, tomato, pickles and mayo.",
+          "price": "10.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "8ec317687a1e47bcac05fc4f4dba7ef6",
+          "kind": "item",
+          "name": "Italian",
+          "description": "Challah roll, ham, salami, capicola, pepperoni, provolone, lettuce, tomato, pickled red onion, green peppers, black olives and pickles.",
+          "price": "10.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "11aa42b1760440aebd407e073fa2af13",
+          "kind": "item",
+          "name": "Reuben",
+          "description": "Rye, house-made corned beef, Swiss, sauerkraut and Thousand Island.",
+          "price": "11.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "7437a702e6404bc3a01c7286dfa59519",
+          "kind": "item",
+          "name": "Rachel",
+          "description": "Rye, sliced turkey, Swiss, sauerkraut and Thousand Island.",
+          "price": "11.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "a5de60a6b567418e899a4377e7a217b7",
+          "kind": "item",
+          "name": "B.L.T.",
+          "description": "White bread, bacon, lettuce, tomato and mayo.",
+          "price": "9.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "ec32f9bd79d3426ca7d0fe72ba1c0c03",
+          "kind": "item",
+          "name": "Ham & Swiss",
+          "description": "White bread, lettuce, tomato and pickles.",
+          "price": "9.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "af813c6edbd0497bb8c61a5c356cf74b",
+          "kind": "header",
+          "name": "Seasonal Soups",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "68da0be590e447dca31981d4b9e3c90c",
+          "kind": "item",
+          "name": "Soup — Cup",
+          "description": "",
+          "price": "4.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "8fd4bd2cc06741be97d23e3d8ddb1d34",
+          "kind": "item",
+          "name": "Soup — Bowl",
+          "description": "",
+          "price": "7.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "0bbaeb6fbc9d477b85c3db405be893f3",
+          "kind": "header",
+          "name": "Add-Ons",
+          "available": true,
+          "column": 1,
+          "layout": "two",
+          "starts_section": true
+        },
+        {
+          "id": "f4e13e11edd046baacc39ace13d20837",
+          "kind": "header",
+          "name": "Dressings",
+          "available": true,
+          "column": 2,
+          "layout": "two",
+          "starts_section": false
+        },
+        {
+          "id": "0cb85b9db7b8435580c919b7730f4ccd",
+          "kind": "item",
+          "name": "Buttered Bagel",
+          "description": "",
+          "price": "3.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "72c72541fe52426d85cfcd7540c55145",
+          "kind": "item",
+          "name": "Sliced Deli Meat",
+          "description": "",
+          "price": "3.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "945c0d68fa744325acfea33440a271b3",
+          "kind": "item",
+          "name": "Bacon",
+          "description": "",
+          "price": "3.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "0010bf8da2b94e2c92fc0dcbd606fc5d",
+          "kind": "item",
+          "name": "Tuna Salad",
+          "description": "",
+          "price": "3.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "58bafb34c2804ecda18db888fc5ae1b4",
+          "kind": "item",
+          "name": "Chicken Salad",
+          "description": "",
+          "price": "3.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "4fae7b85bd91416ebcc359cc665dc1ca",
+          "kind": "item",
+          "name": "Smoked Salmon",
+          "description": "",
+          "price": "4.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "4433a191542c4cd1a0d3bbe6593ad540",
+          "kind": "option",
+          "name": "Lemon Parmesan",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "2e9a56e6a8ef4c219211da12a24dea1f",
+          "kind": "option",
+          "name": "Caesar",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "77b3fa2498f74e539fe2b76267c6e9bc",
+          "kind": "option",
+          "name": "Ranch",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "6680084690584e418db2c30b069b7666",
+          "kind": "option",
+          "name": "Thousand Island",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "ec36b929e12944e48d63f1d96e36049c",
+          "kind": "option",
+          "name": "Balsamic",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "519cbaefd5494be6af0dc22a277f6c58",
+          "kind": "option",
+          "name": "Blue Cheese",
+          "available": true,
+          "column": 2
+        },
+        {
+          "id": "c78eacdf498249c989030148b4c78e63",
+          "kind": "option",
+          "name": "Red Wine Vinaigrette",
+          "available": true,
+          "column": 2
+        }
+      ],
+      "rotation": 0
+    },
+    {
+      "id": "screen3",
+      "items": [
+        {
+          "id": "cb8fe494b50b426dac3d744680d686ed",
+          "kind": "header",
+          "name": "Fresh Baked Goods",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "34f390f9b041463fb82174cb6267b84a",
+          "kind": "item",
+          "name": "Muffins",
+          "description": "",
+          "price": "3.75",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "f8dafbab6f524cc6a8a79063d42f1105",
+          "kind": "item",
+          "name": "Mini Muffins",
+          "description": "",
+          "price": "0.70",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "1dd4adffd8fe48818b6f1fef512e0d54",
+          "kind": "item",
+          "name": "Scones",
+          "description": "",
+          "price": "3.00",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "3dcc91432ec44ab28e9cf61d8d4e7eff",
+          "kind": "item",
+          "name": "Cookies",
+          "description": "Chocolate chip, peanut butter cup or M&M.",
+          "price": "2.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "43ffd66f901e46fab75b3189944378bd",
+          "kind": "item",
+          "name": "Challah Roll",
+          "description": "Each.",
+          "price": "0.95",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "cf95ca93ed0540d88bd0ba5ae8b2b4d5",
+          "kind": "item",
+          "name": "Challah Rolls — Pack of 10",
+          "description": "",
+          "price": "8.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "7f99e303ecab4ab58534fdacbad3c48f",
+          "kind": "header",
+          "name": "Beverages · Sample Prices",
+          "available": true,
+          "column": 1,
+          "layout": "full",
+          "starts_section": true
+        },
+        {
+          "id": "a468d2bad7684cbab0ff50ec7cdc53e2",
+          "kind": "item",
+          "name": "Fresh Brewed Coffee",
+          "description": "Regular or decaf. Placeholder item and price.",
+          "price": "2.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "d4c8ae3b58654ce3a9f8057f8346880a",
+          "kind": "item",
+          "name": "Iced Coffee",
+          "description": "Placeholder item and price.",
+          "price": "3.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "99d2fcdd03274a72989fc5c5820a1504",
+          "kind": "item",
+          "name": "Hot Tea",
+          "description": "Placeholder item and price.",
+          "price": "2.50",
+          "available": true,
+          "column": 1
+        },
+        {
+          "id": "beab11e85ab64b42b173461411935c26",
+          "kind": "item",
+          "name": "Bottled Water",
+          "description": "Placeholder item and price.",
+          "price": "2.00",
+          "available": true,
+          "column": 1
+        }
+      ],
+      "rotation": 0
+    },
+    {
+      "id": "screen4",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen5",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen6",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen7",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen8",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen9",
+      "items": [],
+      "rotation": 0
+    },
+    {
+      "id": "screen10",
+      "items": [],
+      "rotation": 0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Edit menus · Max’s Menu{% endblock %}{% block scripts %}<script src="/static/admin.js" defer></script>{% endblock %}{% block content %}
+<h1>Edit menus</h1><p>Headers and items share one ordered list. Prices are optional; blank, zero and negative prices stay hidden on the displays. Changes appear on the TVs after publishing.</p>
+<div class="toolbar"><label>Menu<select id="screen" aria-label="Menu">{% for sid in screen_ids %}<option value="{{ sid }}">Menu {{ loop.index }}</option>{% endfor %}</select></label><button id="save" class="primary" disabled>Save &amp; publish</button><button id="reload">Reload saved</button><button id="download">Download current menu</button><label class="import-file">Import menu<input id="import-menu" type="file" accept=".json,application/json"></label></div>
+<p class="public-screen-url">Default public screen URL: <a id="public-screen-url" href="/display/screen1" target="_blank" rel="noopener"></a></p><p>This URL may show a different menu when a schedule rule is active. The preview always shows the selected menu.</p><div class="screen-settings"><label class="check-label"><input id="food-safety-warning" type="checkbox" disabled>Include Food Safety Warning</label></div>
+{% if is_admin %}<fieldset id="rotation-settings"><legend>Display Rotation (clockwise)</legend>{% for angle in [0,90,180,270] %}<label class="check-label"><input type="radio" name="rotation" value="{{ angle }}" disabled>{{ angle }}°</label>{% endfor %}</fieldset>{% endif %}
+<p id="status" role="status" aria-live="polite">Loading…</p>
+<details class="preview-box"><summary>Preview saved menu</summary><p id="readability" role="status">Preview shows the published menu, not unpublished edits.</p><iframe id="preview-frame" title="Published menu preview" src="/display/screen1"></iframe></details>
+<div class="entry-toolbar"><button id="add-item" disabled>Add item or header</button><span>Full Width is the default. Column headings label an existing two-column section.</span></div>
+<div id="editor"></div>
+<div class="entry-toolbar"><button id="add-item-bottom" disabled>Add item or header</button></div>
+{% endblock %}

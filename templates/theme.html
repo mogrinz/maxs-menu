@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Theme · Max’s Menu{% endblock %}{% block scripts %}<script src="/static/theme.js" defer></script>{% endblock %}{% block content %}
+<h1>Theme</h1><p>Choose a font and color style for all menus. Preview it below before publishing.</p>
+<form id="theme-form" class="account-panel"><div class="toolbar"><label>Theme<select id="theme-picker" aria-label="Theme" disabled>{% for id,name in themes.items() %}<option value="{{ id }}">{{ name }}</option>{% endfor %}</select></label><button id="save-theme" class="primary" disabled>Save theme</button><button id="reload-theme" type="button">Reload saved theme</button></div><p id="theme-description"></p><p id="theme-status" role="status" aria-live="polite">Loading…</p></form>
+<div class="toolbar"><label>Preview menu<select id="theme-screen" aria-label="Preview menu">{% for sid in screen_ids %}<option value="{{ sid }}">Menu {{ loop.index }}</option>{% endfor %}</select></label><span>Preview uses published items with your selected style.</span></div>
+<div class="theme-preview"><iframe id="theme-preview" title="Theme preview" src="/display/screen1"></iframe></div>
+{% endblock %}

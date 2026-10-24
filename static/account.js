@@ -1,0 +1,4 @@
+(() => {
+'use strict';const api=window.MenuAPI;let busy=false;
+  const passwordForm=document.getElementById('password-form');if(passwordForm)passwordForm.addEventListener('submit',async event=>{event.preventDefault();if(busy)return;const first=document.getElementById('new-password'),second=document.getElementById('confirm-password'),feedback=document.getElementById('password-status');if(first.value!==second.value){api.feedback(feedback,'The two passwords do not match.',true);return;}const button=passwordForm.querySelector('button');busy=true;button.disabled=true;try{const data=await api.request('/api/admin/password',{method:'POST',body:JSON.stringify({new_password:first.value,confirm_password:second.value})});first.value='';second.value='';api.feedback(feedback,data.message);}catch(error){api.feedback(feedback,error.message,true);}finally{busy=false;button.disabled=false;}});
+})();

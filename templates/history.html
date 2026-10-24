@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}History · Max’s Menu{% endblock %}{% block scripts %}<script src="/static/history.js" defer></script>{% endblock %}{% block content %}
+<h1>History</h1><p>The latest 30 saved menus are retained. Each entry contains the menu before that change.{% if is_admin %} Restoring an entry updates all connected displays.{% else %} Max can restore an earlier menu if needed.{% endif %}</p>
+<p>Download exports that saved menu for importing through Edit Menus. Menu exports do not include accounts, Wi-Fi passwords, or themes.</p><p>Theme settings are managed separately and are kept when restoring a menu.</p><button id="load-history">Refresh history</button><p id="history-status" role="status" aria-live="polite"></p><div id="history"></div>
+{% endblock %}
