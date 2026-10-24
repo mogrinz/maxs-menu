@@ -138,7 +138,17 @@ class Rc1UpgradeTests(unittest.TestCase):
             def mapped(value):
                 value=str(value);return root/value.lstrip('/') if value.startswith(('/etc/','/var/lib/','/usr/local/lib/')) else Path(value)
             nm=FakeNM();nm.run=lambda *args:None;nm.saved_password='keep-existing-wifi'
-            with patch.object(installer,'Path',side_effect=mapped),patch.object(installer,'DESTINATION',root/'usr/local/lib/maxs-menu-network'),patch.object(installer,'STATE_DIR',root/'var/lib/maxs-menu-network'),patch.object(installer,'preflight',return_value=(nm,HOME)),patch.object(installer.os,'geteuid',return_value=0),patch.object(installer.pwd,'getpwuid',return_value=SimpleNamespace(pw_name='chosen-os-user',pw_uid=1000,pw_gid=1000)),patch.object(installer.os,'chown'),patch.object(installer.subprocess,'run'):
+            # This test simulates root services even when CI itself is unprivileged.
+            # Preserve the production ownership check; fake only our private state dir.
+            original_stat=Path.stat
+            def root_stat(path,*args,**kwargs):
+                result=original_stat(path,*args,**kwargs)
+                if path==root/'var/lib/maxs-menu-network':
+                    import os
+                    values=list(result);values[4]=0
+                    return os.stat_result(values)
+                return result
+            with patch.object(Path,'stat',autospec=True,side_effect=root_stat),patch.object(installer,'Path',side_effect=mapped),patch.object(installer,'DESTINATION',root/'usr/local/lib/maxs-menu-network'),patch.object(installer,'STATE_DIR',root/'var/lib/maxs-menu-network'),patch.object(installer,'preflight',return_value=(nm,HOME)),patch.object(installer.os,'geteuid',return_value=0),patch.object(installer.pwd,'getpwuid',return_value=SimpleNamespace(pw_name='chosen-os-user',pw_uid=1000,pw_gid=1000)),patch.object(installer.os,'chown'),patch.object(installer.subprocess,'run'):
                 installer.install(appdir)
             self.assertEqual(json.loads((root/'etc/maxs-menu-network.json').read_text()),config)
             self.assertFalse(nm.configured);self.assertEqual(nm.saved_password,'keep-existing-wifi')
