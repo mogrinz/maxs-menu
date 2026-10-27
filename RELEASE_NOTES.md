@@ -1,11 +1,12 @@
-Max’s Menu’s first public prerelease: a Raspberry Pi server for local digital menu boards, with no cloud subscription.
+Max’s Menu v1.0.0-rc3 adds three-column layouts and configurable item currency.
 
-Download **maxs-menu.zip** below, rather than GitHub’s automatically generated source archives. See README for fresh installation and UPGRADING.md for existing RC1 installations.
+- Three-column sections alongside existing full-width/two-column sections, multiple headings per column, and prices aligned to the right within each column.
+- Thin vertical dividers extend through the full content area on menus made entirely of three-column sections, stopping above the optional food-safety footer. Mixed layouts retain section-height dividers.
+- Sample Menus 4 and 5 on fresh installs. Upgrades preserve existing content: load a sample into an empty Menu 4/5 from Edit Menus, then Save & publish.
+- System → Item pricing: administrator-controlled currency and number format. Existing installs keep USD / English (US). Currency selection changes formatting, not amounts; descriptions are left as written.
+- Up to three decimal places for entered prices; display uses standard currency precision. Formatting works offline.
+- Existing application/system backups remain supported, with new backups preserving pricing settings and three-column layouts.
 
-Includes ten menus and permanent screen URLs; daily scheduling; full-width/two-column sections; optional prices and food safety footer; menu rotation; eleven local themes; administrator/employee accounts; history and full application backup/restore; Ethernet, ordinary Wi-Fi, and optional 2.4 GHz hotspot operation.
+Download **maxs-menu.zip** from this release’s Assets rather than the automatic source archives. Follow UPGRADING.md and TESTING_RC3.md. Before upgrading, download a System backup to your computer and switch to Ethernet or ordinary Wi-Fi with internet.
 
-RC2 adds a readable live Schedule clock, administrator-controlled schedule timezone in System, and a yellow initial network-loading indicator. RC1 accounts, content, schedules, and network settings are retained during upgrade.
-
-The maintainer reports that all RC2 acceptance tests passed. Automated checks and browser tests are documented in VALIDATION.md. Source code is MIT licensed; fonts retain their separate notices.
-
-**Known limits:** the hotspot has no internet sharing or 5 GHz selection. On the tested Onn player, offline Wi-Fi startup required disabling Android internet validation through ADB; changing automatic time settings did not solve it. Scheduled menus require an accurate Pi clock. Earlier private-development builds are outside the supported upgrade path.
+The networking implementation and OS/SSH configuration are unchanged in RC3. The existing offline-hotspot and accurate-Pi-clock limitations still apply. The maintainer has tested the new sample layouts, full-height dividers, and currency changes. Automated and browser checks are recorded in VALIDATION.md. Test your own hardware combination using TESTING_RC3.md.

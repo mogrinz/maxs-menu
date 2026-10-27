@@ -439,12 +439,410 @@
     },
     {
       "id": "screen4",
-      "items": [],
+      "items": [
+        {
+          "id": "sample4-1",
+          "kind": "header",
+          "name": "Bagels",
+          "available": true,
+          "column": 1,
+          "layout": "three",
+          "starts_section": true
+        },
+        {
+          "id": "sample4-2",
+          "kind": "item",
+          "name": "Single Bagel",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "1.75"
+        },
+        {
+          "id": "sample4-3",
+          "kind": "item",
+          "name": "Half-Dozen",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "9.00"
+        },
+        {
+          "id": "sample4-4",
+          "kind": "item",
+          "name": "Baker’s Dozen",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "17.00"
+        },
+        {
+          "id": "sample4-5",
+          "kind": "header",
+          "name": "From the Bakery",
+          "available": true,
+          "column": 1,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample4-6",
+          "kind": "item",
+          "name": "Muffin",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "3.75"
+        },
+        {
+          "id": "sample4-7",
+          "kind": "item",
+          "name": "Scone",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "3.00"
+        },
+        {
+          "id": "sample4-8",
+          "kind": "item",
+          "name": "Cookie",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample4-9",
+          "kind": "header",
+          "name": "Breakfast Sandwiches",
+          "available": true,
+          "column": 2,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample4-10",
+          "kind": "item",
+          "name": "Egg or Egg Whites",
+          "available": true,
+          "column": 2,
+          "description": "On your choice of bagel or bread.",
+          "price": "4.50"
+        },
+        {
+          "id": "sample4-11",
+          "kind": "item",
+          "name": "Egg & Cheese",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "5.50"
+        },
+        {
+          "id": "sample4-12",
+          "kind": "item",
+          "name": "Egg, Cheese & Meat",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "8.50"
+        },
+        {
+          "id": "sample4-13",
+          "kind": "item",
+          "name": "Southwestern",
+          "available": true,
+          "column": 2,
+          "description": "Egg, peppers, onion, tomato & cheese.",
+          "price": "9.25"
+        },
+        {
+          "id": "sample4-14",
+          "kind": "header",
+          "name": "Shop Favorites",
+          "available": true,
+          "column": 3,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample4-15",
+          "kind": "item",
+          "name": "Lox Bagel",
+          "available": true,
+          "column": 3,
+          "description": "Salmon, cream cheese, tomato & capers.",
+          "price": "11.00"
+        },
+        {
+          "id": "sample4-16",
+          "kind": "item",
+          "name": "Smoked Trout Bagel",
+          "available": true,
+          "column": 3,
+          "description": "Trout spread, spinach & pickled onion.",
+          "price": "10.50"
+        },
+        {
+          "id": "sample4-17",
+          "kind": "header",
+          "name": "Morning Coffee",
+          "available": true,
+          "column": 3,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample4-18",
+          "kind": "item",
+          "name": "House Coffee",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample4-19",
+          "kind": "item",
+          "name": "Latte",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "4.50"
+        }
+      ],
       "rotation": 0
     },
     {
       "id": "screen5",
-      "items": [],
+      "items": [
+        {
+          "id": "sample5-20",
+          "kind": "header",
+          "name": "Hot Drinks",
+          "available": true,
+          "column": 1,
+          "layout": "three",
+          "starts_section": true
+        },
+        {
+          "id": "sample5-21",
+          "kind": "item",
+          "name": "House Coffee",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample5-22",
+          "kind": "item",
+          "name": "Americano",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "3.25"
+        },
+        {
+          "id": "sample5-23",
+          "kind": "item",
+          "name": "Cappuccino",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "4.25"
+        },
+        {
+          "id": "sample5-24",
+          "kind": "item",
+          "name": "Latte",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "4.50"
+        },
+        {
+          "id": "sample5-25",
+          "kind": "item",
+          "name": "Mocha",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "4.75"
+        },
+        {
+          "id": "sample5-26",
+          "kind": "header",
+          "name": "Tea & Cocoa",
+          "available": true,
+          "column": 1,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample5-27",
+          "kind": "item",
+          "name": "Hot Tea",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample5-28",
+          "kind": "item",
+          "name": "Hot Chocolate",
+          "available": true,
+          "column": 1,
+          "description": "",
+          "price": "3.50"
+        },
+        {
+          "id": "sample5-29",
+          "kind": "header",
+          "name": "Cold Drinks",
+          "available": true,
+          "column": 2,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample5-30",
+          "kind": "item",
+          "name": "Iced Coffee",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "3.25"
+        },
+        {
+          "id": "sample5-31",
+          "kind": "item",
+          "name": "Cold Brew",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "4.00"
+        },
+        {
+          "id": "sample5-32",
+          "kind": "item",
+          "name": "Iced Latte",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "4.75"
+        },
+        {
+          "id": "sample5-33",
+          "kind": "header",
+          "name": "Refreshers",
+          "available": true,
+          "column": 2,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample5-34",
+          "kind": "item",
+          "name": "Lemonade",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "3.00"
+        },
+        {
+          "id": "sample5-35",
+          "kind": "item",
+          "name": "Iced Tea",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "2.75"
+        },
+        {
+          "id": "sample5-36",
+          "kind": "item",
+          "name": "Sparkling Water",
+          "available": true,
+          "column": 2,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample5-37",
+          "kind": "header",
+          "name": "Sweet Treats",
+          "available": true,
+          "column": 3,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample5-38",
+          "kind": "item",
+          "name": "Muffin",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "3.75"
+        },
+        {
+          "id": "sample5-39",
+          "kind": "item",
+          "name": "Scone",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "3.00"
+        },
+        {
+          "id": "sample5-40",
+          "kind": "item",
+          "name": "Cookie",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "2.50"
+        },
+        {
+          "id": "sample5-41",
+          "kind": "header",
+          "name": "Take Some Home",
+          "available": true,
+          "column": 3,
+          "layout": "three",
+          "starts_section": false
+        },
+        {
+          "id": "sample5-42",
+          "kind": "item",
+          "name": "Challah Roll",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "0.95"
+        },
+        {
+          "id": "sample5-43",
+          "kind": "item",
+          "name": "Ten Challah Rolls",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "8.50"
+        },
+        {
+          "id": "sample5-44",
+          "kind": "item",
+          "name": "Bagel Half-Dozen",
+          "available": true,
+          "column": 3,
+          "description": "",
+          "price": "9.00"
+        }
+      ],
       "rotation": 0
     },
     {

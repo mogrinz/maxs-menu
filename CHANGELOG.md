@@ -1,3 +1,13 @@
+# Changes in 1.0.0-rc3
+
+- Add opt-in three-column sections with per-entry column assignment and multiple headings per column.
+- Add subtle full-height column dividers on entirely three-column menus; preserve the food-safety footer and use section-height rules in mixed layouts.
+- Preserve all entries when changing to fewer columns; keep existing full-width/two-column behavior.
+- Include three-column samples in Menus 4 and 5 on fresh installs; provide an explicit draft loader for empty Menu 4/5 after upgrades.
+- Add administrator-only global currency and regional number format settings under System, with offline formatting and live display refresh.
+- Support up to three price decimals, standard currency precision, and prices up to 9,999,999.999. No exchange-rate conversion.
+- Preserve existing accounts, menus, themes, schedules, network settings, and RC2 backups. Pricing defaults to USD / en-US when absent.
+
 # Release notes
 
 ## 1.0.0-rc2

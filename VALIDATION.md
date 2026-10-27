@@ -65,3 +65,11 @@ The maintainer reports that all tests in TESTING_RC2.md passed before first GitH
 Use [TESTING_RC2.md](TESTING_RC2.md) for the requested physical test sequence.
 
 The candidate retains the 2.4 GHz hostapd approach. It does not implement a new 5 GHz backend, internet sharing, or Android validation spoofing, and does not claim those unresolved player/network issues are fixed.
+
+## RC3 local validation (2026-10-26)
+
+The RC3 Python suite contains 75 tests: 74 passed and one Unix-socket test was skipped because this execution environment does not permit that socket. Python compilation, JavaScript syntax, shell syntax, and diff whitespace checks pass.
+
+Headless Chromium tested the real editor sample-loader workflow, changing section layouts, currency UI persistence, formatting for USD/EUR/JPY/KWD, and a live EUR-to-GBP update on an already-open display. Rendering checks cover 176 cases: both new samples, eleven themes, four rotations, and landscape/portrait viewport sizes, with the safety footer enabled. Checks include all positive items having prices, top alignment, no header underline, and no measured canvas overflow. The final typography adjustment is included in the completed run. Legacy one-/two-column rendering also retains every item. No browser JavaScript errors were observed.
+
+The maintainer subsequently confirmed the sample layouts, full-height dividers, and currency changes while testing RC3. Full-height divider geometry was also checked in Chromium with light, dark, and bordered themes, and upright/rotated content with the food-safety footer. The release package includes these divider updates. The complete RC3 checklist remains available in TESTING_RC3.md for hardware-specific acceptance testing.

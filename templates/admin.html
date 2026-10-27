@@ -5,7 +5,7 @@
 {% if is_admin %}<fieldset id="rotation-settings"><legend>Display Rotation (clockwise)</legend>{% for angle in [0,90,180,270] %}<label class="check-label"><input type="radio" name="rotation" value="{{ angle }}" disabled>{{ angle }}°</label>{% endfor %}</fieldset>{% endif %}
 <p id="status" role="status" aria-live="polite">Loading…</p>
 <details class="preview-box"><summary>Preview saved menu</summary><p id="readability" role="status">Preview shows the published menu, not unpublished edits.</p><iframe id="preview-frame" title="Published menu preview" src="/display/screen1"></iframe></details>
-<div class="entry-toolbar"><button id="add-item" disabled>Add item or header</button><span>Full Width is the default. Column headings label an existing two-column section.</span></div>
-<div id="editor"></div>
+<div class="entry-toolbar"><button id="add-item" disabled>Add item or header</button><span>Full Width is the default. Choose 2 or 3 Columns on a section header, then assign each entry to its column. Column headings label an existing section.</span></div>
+<p><button id="load-sample" type="button" hidden>Load three-column sample into this empty menu</button></p><div id="editor"></div>
 <div class="entry-toolbar"><button id="add-item-bottom" disabled>Add item or header</button></div>
 {% endblock %}

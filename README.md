@@ -6,19 +6,20 @@ Max's Menu turns a Raspberry Pi into a menu server for cafés, bakeries, restaur
 
 You can run it on your existing network or, with compatible Wi-Fi hardware, use an optional standalone hotspot that does not require internet access for day-to-day operation.
 
-**Release status:** [v1.0.0-rc2](https://github.com/mogrinz/maxs-menu/releases/tag/v1.0.0-rc2) is the first public prerelease, supporting **fresh installation and upgrades from RC1**. The maintainer has completed the RC2 acceptance test sequence on the build hardware. Test your own Pi/player combination before relying on it in service. Startup and browser auto-launch worked on the tested Onn device over a wired network and over the offline hotspot after disabling Android’s internet-validation check through ADB. Power-cycling the Pi and player together also restored the menu.
+**Release status:** [v1.0.0-rc3](https://github.com/mogrinz/maxs-menu/releases/tag/v1.0.0-rc3) is the current prerelease, supporting fresh installation and upgrades from RC1/RC2. It adds three-column menu sections, two new default sample menus, full-height column dividers, and configurable currency formatting. The maintainer has tested the new layouts, dividers, and currency controls. See [TESTING_RC3.md](TESTING_RC3.md) when validating your own Pi/player combination.
 
 <!-- IMAGE TODO: Photo of finished multi-screen digital menu board -->
 
 ## What can it do?
 
-- Create and edit **10 menus**. Three sample menus are populated so you can explore the system immediately; seven are empty placeholders.
+- Create and edit **10 menus**. Five sample menus are populated so you can explore the system immediately; Menus 4 and 5 demonstrate three-column layouts, and five menus are empty placeholders.
 - Provide **10 permanent screen addresses**, one for each logical display (`screen1` through `screen10`). Any number of compatible TVs can point to the same address.
 - Display different menus on different TVs, or show the same menu on several TVs.
 - **Schedule automatic menu changes** in 30-minute increments: breakfast in the morning, lunch at noon, and dinner later, for example. The TV's URL stays the same.
 - Edit items, prices, availability, layouts, colors, and fonts. Displays check for changes approximately every five seconds.
 - Choose from **11 locally hosted themes**, including seasonal and scenery designs.
-- Use full-width or two-column menu sections, optional prices, and an optional food-safety footer.
+- Use full-width, two-column or three-column sections, optional prices, and an optional food-safety footer.
+- Choose the global item currency and regional number format under System. Currency formatting works offline and does not convert prices.
 - Rotate an individual menu 0°, 90°, 180°, or 270° to suit your screen orientation.
 - Give administrators and employees separate accounts; download history and a system backup.
 - Operate on Ethernet, normal Wi-Fi, or an optional local Wi-Fi hotspot, depending on the Pi's networking hardware.
@@ -96,7 +97,7 @@ If `.local` doesn't resolve, use the actual IP address instead of `maxsmenu.loca
 
 ## 2. Download and transfer Max's Menu
 
-Download [**maxs-menu.zip**](https://github.com/mogrinz/maxs-menu/releases/download/v1.0.0-rc2/maxs-menu.zip) from [**Releases → Assets**](https://github.com/mogrinz/maxs-menu/releases) and save it in your computer’s Downloads folder.
+Download [**maxs-menu.zip**](https://github.com/mogrinz/maxs-menu/releases/download/v1.0.0-rc3/maxs-menu.zip) from [**Releases → Assets**](https://github.com/mogrinz/maxs-menu/releases) and save it in your computer’s Downloads folder. Use this installation ZIP rather than GitHub’s automatically generated source archives.
 
 The repository contains source code; installable ZIPs are release attachments. No committed `dist` directory is needed. Use **`maxs-menu.zip`** rather than GitHub’s automatically generated **Source code (zip)**, whose top-level folder can differ. The installation ZIP always contains a `maxs-menu` folder; the application and release notes record its version.
 
@@ -164,7 +165,7 @@ sudo python3 install_service.py
 curl http://localhost:8080/health
 ```
 
-A successful health response includes `"status":"ok"` and version `1.0.0-rc2`. The application will be managed as a startup service so it can run without a keyboard or monitor attached.
+A successful health response includes `"status":"ok"` and version `1.0.0-rc3`. The application will be managed as a startup service so it can run without a keyboard or monitor attached.
 
 ## 4. Open the administration interface
 
@@ -176,7 +177,7 @@ http://maxsmenu.local:8080/admin
 
 Or replace `maxsmenu.local` with the Pi's actual IP address, for example `http://192.168.1.50:8080/admin` (**example only**). Sign in with the **Max's Menu administrator username and password** created during setup, not the Pi OS credentials.
 
-The application starts with **three populated example menus**. You can explore them, change names and prices, try different themes, and see how screen assignments work before creating your own menus.
+The application starts with **five populated example menus**. You can explore them, change names and prices, try different themes, and see how screen assignments work before creating your own menus.
 
 ### What you'll find in the admin interface
 

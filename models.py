@@ -11,11 +11,40 @@ import threading
 import uuid
 from werkzeug.security import check_password_hash, generate_password_hash
 
-VERSION = "1.0.0-rc2"
+VERSION = "1.0.0-rc3"
 ROOT = Path(__file__).resolve().parent
 SCREEN_IDS = tuple("screen" + str(i) for i in range(1, 11))
 THEMES = {"classic-bagel-shop": "Classic Bagel Shop", "modern-minimalistic": "Modern Minimalistic", "golden-chalk": "Golden Chalk", "coffeehouse-chalkboard": "Coffeehouse Chalkboard", "rose-cafe": "Rose Café", "retro-diner": "Retro Diner", "starlight-cafe":"Starlight Café", "seaside-cafe":"Seaside Café", "autumn-harvest":"Autumn Harvest", "winter-hearth":"Winter Hearth", "spring-garden":"Spring Garden"}
 ALIASES = {"breakfast":"screen1", "lunch":"screen2", "baked":"screen3"}
+
+# Explicit choices keep saved settings portable and work offline in the players.
+CURRENCIES = {"USD":"US dollar", "CAD":"Canadian dollar", "GBP":"British pound",
+    "EUR":"Euro", "AUD":"Australian dollar", "NZD":"New Zealand dollar",
+    "CHF":"Swiss franc", "JPY":"Japanese yen", "CNY":"Chinese yuan",
+    "HKD":"Hong Kong dollar", "SGD":"Singapore dollar", "INR":"Indian rupee",
+    "MXN":"Mexican peso", "BRL":"Brazilian real", "ZAR":"South African rand",
+    "SEK":"Swedish krona", "NOK":"Norwegian krone", "DKK":"Danish krone",
+    "PLN":"Polish zloty", "CZK":"Czech koruna", "KRW":"South Korean won",
+    "PHP":"Philippine peso", "THB":"Thai baht", "AED":"UAE dirham",
+    "SAR":"Saudi riyal", "ILS":"Israeli shekel", "BHD":"Bahraini dinar",
+    "KWD":"Kuwaiti dinar"}
+PRICE_LOCALES = {"en-US":"English (US)", "en-CA":"English (Canada)",
+    "en-GB":"English (UK)", "en-AU":"English (Australia)", "en-NZ":"English (New Zealand)",
+    "en-IN":"English (India)", "de-DE":"German (Germany)", "fr-FR":"French (France)",
+    "fr-CA":"French (Canada)", "es-ES":"Spanish (Spain)", "es-MX":"Spanish (Mexico)",
+    "it-IT":"Italian (Italy)", "pt-BR":"Portuguese (Brazil)", "nl-NL":"Dutch (Netherlands)",
+    "ja-JP":"Japanese", "ko-KR":"Korean", "zh-CN":"Chinese (China)",
+    "sv-SE":"Swedish", "nb-NO":"Norwegian", "da-DK":"Danish", "pl-PL":"Polish",
+    "cs-CZ":"Czech", "en-ZA":"English (South Africa)", "ar-AE":"Arabic (UAE)"}
+DEFAULT_PRICING = {"currency":"USD", "locale":"en-US"}
+
+
+def validate_pricing(value):
+    if (not isinstance(value, dict) or set(value) != {"currency", "locale"}
+            or not isinstance(value["currency"], str) or value["currency"] not in CURRENCIES
+            or not isinstance(value["locale"], str) or value["locale"] not in PRICE_LOCALES):
+        raise ValueError("Choose a supported currency and number format.")
+    return value
 
 
 def now():
@@ -104,17 +133,17 @@ def validate_menu(menu):
             seen_items.add(iid)
             if not isinstance(item["name"], str) or not 1 <= len(item["name"].strip()) <= 120:
                 raise ValueError("Every entry needs a name of 1–120 characters.")
-            if not isinstance(item["available"], bool) or type(item["column"]) is not int or item["column"] not in {1, 2}:
-                raise ValueError("Choose Column 1 or Column 2 and an availability setting.")
+            if not isinstance(item["available"], bool) or type(item["column"]) is not int or item["column"] not in {1, 2, 3}:
+                raise ValueError("Choose Column 1, 2 or 3 and an availability setting.")
             if kind == "header":
-                if not isinstance(item["layout"], str) or item["layout"] not in {"full", "two"} or not isinstance(item["starts_section"], bool):
-                    raise ValueError("Headers need Full Width or 2 Columns and a header role.")
+                if not isinstance(item["layout"], str) or item["layout"] not in {"full", "two", "three"} or not isinstance(item["starts_section"], bool):
+                    raise ValueError("Headers need Full Width, 2 Columns or 3 Columns and a header role.")
             elif kind == "item":
                 if not isinstance(item["description"], str) or len(item["description"]) > 400:
                     raise ValueError("Descriptions must be at most 400 characters.")
                 price = item.get("price")
-                if price is not None and price != "" and (not isinstance(price, str) or not re.fullmatch(r"-?(?:0|[1-9][0-9]{0,3})\.[0-9]{2}", price)):
-                    raise ValueError("Price is optional. Use a number such as 5.50 between -9999.99 and 9999.99, or leave it blank.")
+                if price is not None and price != "" and (not isinstance(price, str) or not re.fullmatch(r"-?(?:0|[1-9][0-9]{0,6})\.[0-9]{2,3}", price)):
+                    raise ValueError("Price is optional. Use up to 7 digits and 2–3 decimal places, such as 5.50, or leave it blank.")
     if count > 500:
         raise ValueError("Use at most 500 entries across all menus.")
     return menu
@@ -243,7 +272,8 @@ class Store:
             theme = state.get("theme", "classic-bagel-shop")
             if theme not in THEMES:
                 raise ValueError("Saved theme is invalid.")
-            return {"menu":menu, "revision":self.revision(menu), "theme":theme, "theme_revision":self.revision(theme)}
+            return {"menu":menu, "revision":self.revision(menu), "theme":theme, "theme_revision":self.revision(theme),
+                    "pricing":state["settings"].get("pricing", DEFAULT_PRICING)}
 
     def set_theme(self, theme, revision, user):
         if user["role"] not in {"admin"}:
@@ -406,6 +436,23 @@ class Store:
             atomic_json(self.state_path,state)
             return self.site_settings()
 
+    def pricing(self):
+        with self.lock:
+            value = self.state()["settings"].get("pricing", DEFAULT_PRICING)
+            return {"pricing":dict(value), "revision":self.revision(value)}
+
+    def set_pricing(self, value, revision, user):
+        if user["role"] != "admin":
+            raise Forbidden("Only an administrator can change pricing settings.")
+        validate_pricing(value)
+        with self.lock:
+            state = self.state()
+            if revision != self.revision(state["settings"].get("pricing", DEFAULT_PRICING)):
+                raise Conflict("Pricing settings changed. Reload them before saving.")
+            state["settings"]["pricing"] = dict(value)
+            atomic_json(self.state_path, state)
+            return self.pricing()
+
     def display(self, screen, instant=None, direct=False):
         from zoneinfo import ZoneInfo
         with self.lock:
@@ -420,7 +467,8 @@ class Store:
                     selected = rule["menu"]
                     break
         content = next(row for row in data["menu"]["screens"] if row["id"] == selected)
-        public = {"content":content,"menu_id":selected,"theme":data["theme"]}
+        public = {"content":content,"menu_id":selected,"theme":data["theme"],
+                  "pricing":state["settings"].get("pricing", DEFAULT_PRICING)}
         public["revision"] = self.revision(public)
         return public
 
@@ -436,8 +484,10 @@ def format_clock(local, zone):
 
 def validate_settings(value):
     from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
-    if not isinstance(value,dict) or set(value)!={"site_name","timezone","hotspot_enabled","hotspot_ssid","wifi_interface","country"}:
+    required={"site_name","timezone","hotspot_enabled","hotspot_ssid","wifi_interface","country"}
+    if not isinstance(value,dict) or not required.issubset(value) or set(value)-required-{"pricing"}:
         raise ValueError("Invalid site settings.")
+    if "pricing" in value: validate_pricing(value["pricing"])
     if not isinstance(value["site_name"],str) or not 1<=len(value["site_name"].strip())<=100:
         raise ValueError("Site name needs 1–100 characters.")
     if not isinstance(value["timezone"],str):raise ValueError("Choose an IANA timezone.")

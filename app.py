@@ -5,7 +5,7 @@ import os
 import secrets
 from flask import Flask, g, jsonify, redirect, render_template, request, session, url_for
 from network_client import request_network
-from models import THEMES, ALIASES, SCREEN_IDS, VERSION, Conflict, Forbidden, Store, read_json, validate_menu
+from models import THEMES, ALIASES, SCREEN_IDS, VERSION, ROOT, CURRENCIES, PRICE_LOCALES, Conflict, Forbidden, Store, read_json, validate_menu
 import backups
 
 
@@ -146,7 +146,18 @@ def create_app(data_dir=None):
     @app.get("/system")
     def system_page():
         from zoneinfo import available_timezones
-        return render_template("system.html",timezones=sorted(available_timezones()))
+        return render_template("system.html",timezones=sorted(available_timezones()),currencies=CURRENCIES,price_locales=PRICE_LOCALES)
+
+    @app.get("/api/admin/system/pricing")
+    def pricing_settings():
+        return jsonify(store.pricing())
+
+    @app.post("/api/admin/system/pricing")
+    def save_pricing_settings():
+        body = payload()
+        if set(body) != {"pricing", "revision"}:
+            raise ValueError("Send pricing and revision.")
+        return jsonify(store.set_pricing(body["pricing"], body["revision"], g.user))
 
     @app.get("/api/admin/system/settings")
     def site_settings():
@@ -253,6 +264,13 @@ def create_app(data_dir=None):
     @app.get("/api/admin/menu")
     def menu():
         return jsonify(store.menu())
+
+    @app.get("/api/admin/menu/sample/<screen>")
+    def sample_menu(screen):
+        if screen not in {"screen4", "screen5"}:
+            raise ValueError("Three-column samples are available for Menu 4 and Menu 5.")
+        sample = next(row for row in read_json(ROOT / "sample_menu.json")["screens"] if row["id"] == screen)
+        return jsonify(items=sample["items"])
 
     @app.post("/api/admin/menu")
     def publish():

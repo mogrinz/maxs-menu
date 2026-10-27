@@ -1,6 +1,6 @@
 # Public package audit
 
-Version: 1.0.0-rc2
+Version: 1.0.0-rc3
 
 - Clean source tree; no Git history is included.
 - No populated runtime data, environment secrets, private backups, session keys, or live account files.

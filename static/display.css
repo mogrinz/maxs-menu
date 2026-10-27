@@ -63,3 +63,24 @@ body[data-theme=spring-garden] #board{background:#faf5e8;color:#283a29;border-co
 body[data-theme=spring-garden] .menu-header{font-family:Courgette,Georgia,serif;color:#754c65;border-color:#b6c6a8}
 body[data-theme=spring-garden] .item-row,body[data-theme=spring-garden] .menu-option{font-family:Jost,Arial,sans-serif;color:#283a29}
 body[data-theme=spring-garden] .description{font-family:Jost,Arial,sans-serif;color:#506447}
+
+/* Three columns use the same heading/body alignment as two columns. */
+.three-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:3vw;row-gap:0;align-items:start}
+body #board .three-columns .menu-header{border-bottom:0}
+.three-columns .item-row{column-gap:1vw}
+.column-heading{min-width:0}.menu-header{overflow-wrap:break-word}
+.item-price{unicode-bidi:isolate}
+.three-columns .menu-header{font-size:calc(var(--type)*1.15)}
+
+/* Three-column dividers: subtle rules centered in the existing column gaps. */
+.three-columns{position:relative}
+.three-columns::before,.three-columns::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:currentColor;opacity:.25;pointer-events:none}
+.three-columns::before{left:calc(33.333333% - .5vw)}
+.three-columns::after{left:calc(66.666667% + .5vw)}
+
+/* Extend rules through the content area on an entirely three-column menu. */
+#items.full-height-dividers{position:relative}
+#items.full-height-dividers .three-columns::before,#items.full-height-dividers .three-columns::after{display:none}
+#items.full-height-dividers::before,#items.full-height-dividers::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:currentColor;opacity:.25;pointer-events:none}
+#items.full-height-dividers::before{left:calc(33.333333% - .5vw)}
+#items.full-height-dividers::after{left:calc(66.666667% + .5vw)}

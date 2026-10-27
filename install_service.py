@@ -59,7 +59,7 @@ for _ in range(40):
     try:
         with urllib.request.urlopen('http://127.0.0.1:'+str(int(port))+'/health',timeout=1) as response:
             health=json.load(response)
-        if health.get('status')=='ok' and health.get('version')=='1.0.0-rc2':
+        if health.get('status')=='ok' and health.get('version')=='1.0.0-rc3':
             break
     except (OSError,ValueError):
         pass

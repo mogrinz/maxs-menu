@@ -4,7 +4,7 @@
 
 **RC1 and later public releases are supported.** Earlier private development prototypes are outside this upgrade path. New installations use the fresh-install instructions in README.
 
-RC2 does not add migration work for those private prototypes. It preserves a working RC1 installation’s accounts, menus, themes, schedules, rotations, timezone, port, and network configuration. If your earlier RC1 installation needed its prototype network configuration corrected, retain that working configuration.
+RC3 does not add migration work for those private prototypes. It preserves a working RC1 or RC2 installation’s accounts, menus, themes, schedules, rotations, timezone, port, and network configuration. If your earlier RC1 installation needed its prototype network configuration corrected, retain that working configuration.
 
 ## Before upgrading
 
@@ -63,7 +63,7 @@ The application service name stays `bagel-menu.service`. Because the target dire
 | RC1 network controller configuration and hotspot password | Preserved |
 | Pi OS login, normal Wi-Fi profiles, SSH settings | Not replaced |
 
-The bundled sample content is used for fresh installations only. It never replaces an existing collection during upgrade.
+The bundled sample content never replaces an existing collection during upgrade. To load a new three-column sample, select an empty Menu 4 or 5 in Edit Menus and use the sample button, then Save & publish. Existing installations keep USD / English (US) formatting until an administrator saves another choice under System → Item pricing.
 
 ## Verify
 
@@ -72,7 +72,7 @@ curl http://localhost:8080/health
 systemctl is-active bagel-menu.service
 ```
 
-If you changed the port, use that port instead of 8080. For this package, health should report **1.0.0-rc2**. Sign in with your existing application account. Follow [TESTING_RC2.md](TESTING_RC2.md) before publishing or discarding the prior copy.
+If you changed the port, use that port instead of 8080. For this package, health should report **1.0.0-rc3**. Sign in with your existing application account. Follow [TESTING_RC3.md](TESTING_RC3.md) before publishing or discarding the prior copy.
 
 ## If an upgrade fails
 

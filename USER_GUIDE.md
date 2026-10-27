@@ -47,7 +47,9 @@ If another user publishes first, your stale save is rejected rather than silentl
 - An optional price.
 - A **Show on display** checkbox.
 
-Positive prices appear to the right with a dollar sign and two decimal places. Blank, zero, and negative prices do not display in the price area. You can put a price or other pricing information in the description instead. The current release uses dollar formatting; it has no currency picker.
+Positive prices appear to the right within their column. Administrators choose the currency and number format under **System → Item pricing**. Existing installations default to USD / English (US). Blank, zero, and negative prices do not display in the price area. You can put pricing information in the description instead.
+
+Enter prices using a decimal point, with up to seven digits before it and up to three decimal places. Displays use standard currency precision, for example USD has two decimals, JPY has none, and KWD has three. Extra precision is rounded for display, not discarded from the saved amount. Changing currency does not convert amounts or change prices entered into descriptions. All menus use the same setting. An open editor needs **Reload saved** to update its currency labels.
 
 **Choice / option** creates a name-only line without a separate price or description, useful for included choices such as dressings.
 
@@ -61,7 +63,7 @@ Check **Header Item** to create a heading without price or description. Headers 
 
 A header’s role can be:
 
-- **Start a new section:** begins a new full-width or two-column section.
+- **Start a new section:** begins a new full-width, two-column or three-column section.
 - **Column heading / label:** labels content within an existing section.
 
 For a two-column section:
@@ -71,7 +73,13 @@ For a two-column section:
 3. Assign each following item to Column 1 or Column 2.
 4. Add another section header to end the two-column section.
 
-The two headings occupy a common heading row, so the first items in both columns align below them. Two-column headers have no underline. Move up/down for an ordinary entry in a two-column section reorders within its own column.
+Thin vertical rules separate three-column sections. On a menu made entirely of three-column sections, these extend through the full content area, stopping above the optional food-safety footer. Mixed layouts use section-height dividers so rules do not cross full-width text.
+
+The first headings occupy a common heading row, so the first items in each column align below them. Two- and three-column headers have no underline. Move up/down for an ordinary entry in either layout reorders within its own column.
+
+For **3 Columns**, follow the same steps with a third column heading and items assigned to **Column 3**. Add more **Column heading / label** entries within any column to create sub-sections. Only **Start a new section** starts a new layout block. Full-width, two-column, and three-column blocks can be mixed in a menu. Changing a section to fewer columns keeps every item and moves entries from removed columns into the last remaining column. Removing a header also keeps every item; entries whose column no longer exists render in the last available column.
+
+Fresh installations include three-column examples in **Menu 4** and **Menu 5**. Upgrades preserve all existing menus, including empty ones. To try a sample after upgrading, select an empty Menu 4 or 5 and click **Load three-column sample into this empty menu**, then **Save & publish**. The button is disabled when that menu already contains entries. It changes only the selected menu’s draft and keeps its rotation and safety-warning settings. Beverage prices are placeholders.
 
 ### Display rotation
 
