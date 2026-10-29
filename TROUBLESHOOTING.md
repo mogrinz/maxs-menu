@@ -103,7 +103,9 @@ A failed/unconfirmed trial returns to the prior saved Wi-Fi connection after thr
 
 Use System’s Show password checkbox to compare the actual saved Wi-Fi password. Save a changed password before switching. A saved password does not need to be re-entered for every switch.
 
-The hotspot intentionally has no internet. Android/Google TV devices may require choosing to stay connected, and their auto-reconnection behavior varies. This candidate does not spoof Android validation or force a streaming device’s network policy. Verify Wi-Fi reconnection and kiosk/browser auto-launch with your exact Onn model and firmware.
+The hotspot intentionally has no internet. Android/Google TV devices may require choosing to stay connected, and their auto-reconnection behavior varies. Verify Wi-Fi reconnection and kiosk/browser auto-launch with your exact Onn model and firmware.
+
+**Onn stick fails to auto-connect to the Pi hotspot:** [Watch the supplemental video](https://youtu.be/kLXIXsSObfs) or follow the [complete Onn hotspot connection guide](ONN_WIFI_AUTOCONNECT.md). Initially put the Onn stick and computer on the **same normal Wi-Fi network** for ADB setup. The tested workaround uses `adb shell settings put global captive_portal_mode 0`; the guide includes verification and reversal. Then switch the Pi to confirmed hotspot mode, connect the stick to the hotspot, and **Forget all other saved Wi-Fi networks** so it does not choose the wrong network during startup. Test cold starts and simultaneous power-up. This is device/firmware-dependent, and 5 GHz hotspot behavior is untested (this Max's Menu release uses 2.4 GHz channel 6).
 
 ## SSH connects but interactive typing is extremely slow
 
