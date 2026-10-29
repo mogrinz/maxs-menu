@@ -230,6 +230,7 @@ The installer's hotspot option stores a name and password but **does not immedia
 2. The Pi will create the configured Wi-Fi network. Reconnect your phone or computer to **your new hotspot SSID**.
 3. Open `http://192.168.50.1:8080/system` and select **Keep this mode** **within three minutes**. If you do not confirm, the trial is designed to return to the previous Wi-Fi connection.
 4. Connect each streaming stick to the new hotspot, then set its Fully Kiosk Start URL to `http://192.168.50.1:8080/display/screen1` (or the desired screen number).
+   - After setting up the stick, **Forget** other saved Wi-Fi networks, including the internet-connected network used during initial setup, so it does not choose one of them at startup. If reconnection fails, use the [Onn hotspot auto-connect guide](ONN_WIFI_AUTOCONNECT.md), which includes an [unlisted walkthrough video](https://youtu.be/kLXIXsSObfs).
 5. Test a restart of **both** the Pi and the streaming stick. Make sure the menu automatically returns without internet access.
 
 **Important:** the network switch/rollback procedure requires a saved active **normal Wi-Fi** connection. An Ethernet-only Pi doesn't need to switch to hotspot mode. Do not assume hotspot switching will work over every Wi-Fi adapter, or that every player will automatically reconnect to an offline network.
@@ -241,7 +242,7 @@ Some streaming devices interpret a Wi-Fi network without internet as broken, eve
 - Check that it is connected to the right SSID and that the browser points to `192.168.50.1`, **not** the previous LAN IP.
 - Changing automatic date/time settings did not resolve offline Wi-Fi auto-reconnection on the tested Onn device. It is not a confirmed replacement for the successful ADB change. The Pi must separately have the correct time for scheduled menus.
 - Run a full power-cycle test after changing settings.
-- Disabling Android’s internet-validation check through ADB worked on the build’s Onn device. The exact tested command, reversal command, firmware details, and user instructions still need to be recorded before they are included here. ADB behavior can vary by firmware; see Appendix A.
+- **Onn auto-connect workaround and video:** If the stick joins the Pi hotspot manually but will not reconnect automatically, follow the [step-by-step Onn Wi-Fi guide](ONN_WIFI_AUTOCONNECT.md) or [watch the supplemental video](https://youtu.be/kLXIXsSObfs). The guide explains how to run the single ADB setting, then connect to the Pi hotspot and **Forget** every other saved Wi-Fi network. The behavior may vary by firmware.
 
 ## 7. Backups, upgrading, and help
 
@@ -256,6 +257,7 @@ For an existing installation, don't repeat the fresh-install unzip/move steps ov
 - [User Guide](USER_GUIDE.md): managing menus, layouts, schedules, rotation, themes, accounts, backups.
 - [Upgrading](UPGRADING.md): protecting your data and updating an existing installation.
 - [Troubleshooting](TROUBLESHOOTING.md): networking, clocks, startup, and recovery.
+- [Onn Wi-Fi hotspot auto-connect guide](ONN_WIFI_AUTOCONNECT.md): video and optional ADB workaround for offline hotspot reconnection.
 - [Video rehearsal checklist](VIDEO_WALKTHROUGH.md): clean installation and demonstration sequence.
 - [Validation](VALIDATION.md): checks performed and hardware tests outstanding.
 - [Release notes](CHANGELOG.md): what changed.
@@ -276,7 +278,7 @@ This guide uses the onn. Full HD Streaming Device with Google TV, **8 GB storage
 - Power-cycle recovery after the Pi is temporarily unavailable, and after both devices lose power.
 - The optional Wi-Fi-without-internet warning and the tested ADB connectivity-check configuration.
 
-**Advanced developer option:** if the offline network repeatedly disconnects, investigate Android's network-validation setting using the device's own firmware and documented ADB tooling. **Do not publish a generic ADB command until it has been tested on this specific stick, and provide a reversal command and warning.** These steps should be entirely optional: start with the normal UI-based configuration.
+**Optional advanced workaround:** The tested configuration used `adb shell settings put global captive_portal_mode 0` to change Android's captive-portal handling. See [ONN_WIFI_AUTOCONNECT.md](ONN_WIFI_AUTOCONNECT.md) for the full initial-network setup, verification, reversal commands, security warning, saved-network cleanup, and the [companion video](https://youtu.be/kLXIXsSObfs). The exact firmware/build still needs to be captured; this is not confirmed for every Onn device.
 
 ## Building and publishing
 
