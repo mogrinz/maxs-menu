@@ -1,5 +1,9 @@
 # Max's Menu
 
+[![Video preview: I Built My Own Digital Menu Boards (Free Software!)](https://i.ytimg.com/vi/NY1F6ktmIh4/hqdefault.jpg)](https://www.youtube.com/watch?v=NY1F6ktmIh4)
+
+[Watch the Max’s Menu build on YouTube](https://www.youtube.com/watch?v=NY1F6ktmIh4)
+
 **Professional digital menu boards, without a cloud subscription.**
 
 Max's Menu turns a Raspberry Pi into a menu server for cafés, bakeries, restaurants, and other places that need information on TVs. Create and update menus from a phone or computer on your local network. Each TV displays a webpage using an inexpensive streaming device or other browser, and updates appear within a few seconds.
@@ -258,7 +262,6 @@ For an existing installation, don't repeat the fresh-install unzip/move steps ov
 - [Upgrading](UPGRADING.md): protecting your data and updating an existing installation.
 - [Troubleshooting](TROUBLESHOOTING.md): networking, clocks, startup, and recovery.
 - [Onn Wi-Fi hotspot auto-connect guide](ONN_WIFI_AUTOCONNECT.md): video and optional ADB workaround for offline hotspot reconnection.
-- [Video rehearsal checklist](VIDEO_WALKTHROUGH.md): clean installation and demonstration sequence.
 - [Validation](VALIDATION.md): checks performed and hardware tests outstanding.
 - [Release notes](CHANGELOG.md): what changed.
 
